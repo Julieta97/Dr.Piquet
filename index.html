@@ -10,14 +10,18 @@
 <body>
 
   <header>
-    <div class="contenedor">
+  <div class="contenedor">
+    <div class="doctor-section">
       <img src="Images/doctor-4.jpg" alt="Dr. Piquet" class="doctor-img">
-      <div>
-        <h1>Balón Intragástrico Endoscópico</h1>
-        <p>Dr. Omar Esteban Piquet - Sanatorio Belgrano, Mar del Plata</p>
+      <div class="doctor-text">
+        <p>Dr. Omar Esteban Piquet</p>
+        <p>Sanatorio Belgrano, Mar del Plata</p>
       </div>
     </div>
-  </header>
+
+    <h1 class="titulo">Balón Intragástrico Endoscópico</h1>
+  </div>
+</header>
 
   <nav>
     <a href="#que-es">¿Qué es?</a>
@@ -69,22 +73,22 @@
     <form class="contact-form">
       <div>
         <label for="nombre">Nombre y Apellido</label>
-        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" require autocomplete="name">
+        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required autocomplete="name">
       </div>
 
       <div class="form-row">
         <label for="telefono">Telefono / WhatsApp</label>
-        <input id="telefono" name="telefono" type="tel" placeholder="+54 9 223 ..." inputmode="tel" autocomplete="tel">
+        <input id="telefono" name="telefono" type="tel" placeholder="+54 9 223 ..." required inputmode="tel" autocomplete="tel">
       </div>
 
       <div class="form-row">
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="tu@email.com" require autocomplete="email">
+        <input id="email" name="email" type="email" placeholder="tu@email.com" required autocomplete="email">
       </div>
 
       <div class="form-row form-row-full">
         <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escriba su consulta" required></textarea>
+        <textarea class="texto" id="mensaje" name="mensaje" rows="5" placeholder="Escriba su consulta" required></textarea>
       </div>
 
       <button type="submit" class="btn-primary">Enviar Consulta</button>

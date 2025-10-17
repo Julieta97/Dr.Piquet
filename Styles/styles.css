@@ -7,34 +7,58 @@ body {
     color: #333;
 }
 header {
-    background: #0277bd;
+    background: url(/Images/Logo-Mod.png) right center no-repeat, #5aa3d0;
+    background-size: 50rem;
     color: white;
     text-align: center;
     padding: 2rem 1rem;
+    position: relative; /* necesario para centrar el título */
 }
-
+.titulo {
+    font-size: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
 .contenedor {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-start; /* los deja pegados a la izquierda */
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .doctor-img {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    border: 3px solid white; 
+    border: 3px solid white;
+    border-radius: 6px;
+    margin-left: -6rem;
 }
 
+/* bloque con el nombre del doctor */
+.contenedor p {
+    margin: 0;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+/* título centrado */
 header h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     margin: 0;
     font-size: 2rem;
+    white-space: nowrap;
 }
+
 nav {
     display: flex;
     justify-content: center;
-    background: #01579b;
+    background: #3c8bbd;
 }
 nav a {
     color: white;
@@ -43,7 +67,7 @@ nav a {
     display: block;
 }
 nav a:hover {
-    background: #0288d1;
+    background: #095280;
 }
 section {
     padding: 2rem 1rem;
@@ -93,25 +117,94 @@ section {
 }
 
 .contacto {
-    text-align: center;
-    background: #e1f5fe;
-    padding: 2rem;
-    border-radius: 10px;
+  text-align: center;
+  background: linear-gradient(180deg, #bde0fe, #a2d2ff);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: "Poppins", sans-serif;
+  color: #003049;
+}
+
+.contacto h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #023047;
 }
 
 .contact-form {
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* espacio entre cada campo */
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
 }
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #023047;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #90caf9;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #219ebc;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(33, 158, 188, 0.2);
+}
+
+.texto {
+  resize: none;
+}
+
+/* Botón centrado y más corto */
+.btn-primary {
+  align-self: center;
+  width: 200px;
+  padding: 12px 0;
+  background-color: #219ebc;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #126782;
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+/* Adaptable a pantallas pequeñas */
+@media (max-width: 600px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 footer {
     text-align: center;
-    background: #0277bd;
+    background: url(/Images/Logo_Firma-removebg-preview.png) 20px center no-repeat, #3c8bbd;
     color: white;
     padding: 1rem;
     margin-top: 2rem;
@@ -121,7 +214,7 @@ footer {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #25d366;
+    background: #25d3ca;
     color: white;
     border-radius: 50%;
     width: 60px;
@@ -134,6 +227,6 @@ footer {
     text-decoration: none;
 }
 .whatsapp:hover {
-    background: #1ebd5a;
+    background: #1daaa3;
 }
   
