@@ -65,6 +65,30 @@
     <p><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/542235952646">+54 223 595 2646</a></p>
     <p><strong>Email:</strong> <a href="mailto:dromarestebanpiquet@yahoo.com.ar">dromarestebanpiquet@yahoo.com.ar</a></p>
     <p><strong>Dirección:</strong> Sanatorio Belgrano, Belgrano 4329, Mar del Plata</p>
+    
+    <form class="contact-form">
+      <div>
+        <label for="nombre">Nombre y Apellido</label>
+        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" require autocomplete="name">
+      </div>
+
+      <div class="form-row">
+        <label for="telefono">Telefono / WhatsApp</label>
+        <input id="telefono" name="telefono" type="tel" placeholder="+54 9 223 ..." inputmode="tel" autocomplete="tel">
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="tu@email.com" require autocomplete="email">
+      </div>
+
+      <div class="form-row form-row-full">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escriba su consulta" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Enviar Consulta</button>
+    </form>
   </section>
 
   <footer>

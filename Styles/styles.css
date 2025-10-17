@@ -98,6 +98,17 @@ section {
     padding: 2rem;
     border-radius: 10px;
 }
+
+.contact-form {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 footer {
     text-align: center;
     background: #0277bd;
