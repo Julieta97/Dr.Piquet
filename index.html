@@ -23,13 +23,20 @@
   </div>
 </header>
 
-  <nav>
+  <nav class="navbar">
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+  <div class="nav-links" id="nav-links">
     <a href="#que-es">¿Qué es?</a>
     <a href="#beneficios">Beneficios</a>
     <a href="#procedimiento">Procedimiento</a>
+    <a href="#preguntas">Preguntas frecuentes</a>
     <a href="#ubicacion">Ubicación</a>
     <a href="#contacto">Contacto</a>
-  </nav>
+  </div>
+</nav>
+
 
   <section id="que-es">
     <div class="card">
@@ -114,11 +121,24 @@
   </section>
 
   <footer>
-    <p>© 2025 Dr. Omar Esteban Piquet - Todos los derechos reservados</p>
-  </footer>
+  <img src="Images/Logo_Firma-removebg-preview.png" alt="Logo Sanatorio Belgrano">
+  <p>© 2025 Dr. Omar Esteban Piquet - Todos los derechos reservados</p>
+</footer>
+
 
   <!-- Botón flotante WhatsApp -->
   <a class="whatsapp" href="https://wa.me/542235952646" target="_blank">💬</a>
+
+  <!-- JavaScript -->
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('show');
+  });
+</script>
+
 
 </body>
 </html>
