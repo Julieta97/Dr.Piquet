@@ -22,10 +22,10 @@ header {
     align-items: center;
     justify-content: flex-start; /* los deja pegados a la izquierda */
     gap: 16px;
-    max-width: 1200px;
-    margin: 0 auto;
     position: relative;
+    padding-left: 1rem; /* opcional, solo para respiración */
 }
+
 
 .doctor-img {
     width: 120px;
@@ -57,14 +57,14 @@ header h1 {
 
 .doctor-text p {
     font-size: 1.1rem;
-    line-height: 1.2;
+    line-height: 1.2rem;
 }
 
 /* Medias Queries */
 
-@media (max-width: 1200px) {
+ @media (max-width: 1200px) {
   header {
-    background: #5aa3d0; /* eliminamos la imagen del logo en móvil */
+    background: #5aa3d0;
     padding: 1.5rem 1rem;
     text-align: center;
   }
@@ -91,7 +91,19 @@ header h1 {
 
   .doctor-text p {
     font-size: 1.1rem;
-    line-height: 1.2;
+    line-height: 1.2rem;
+    margin: 0;
+  }
+
+  .doctor-text .info {
+    text-align: center; 
+    margin-left: 0;  
+    margin-top: 0.2rem;  
+  }
+
+  .doctor-text .line {
+    text-align: left;   
+    margin-left: 0.5rem;  
   }
 
   header h1 {
@@ -102,6 +114,7 @@ header h1 {
     white-space: normal;
   }
 }
+
 
 
 @media (max-width: 768px) {
