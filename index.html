@@ -211,51 +211,59 @@
   <!-- JavaScript -->
 <script>
   const toggle = document.getElementById('menu-toggle');
-  const links = document.getElementById('nav-links');
+  const links  = document.getElementById('nav-links');
 
   toggle.addEventListener('click', () => {
     links.classList.toggle('show');
   });
 
-   // ===== Scroll suave con "freno" al final (ease-out) =====
+  // ===== Scroll suave con "freno" =====
   const menuLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
-  // Easing easeOutCubic
   const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
 
-  function smoothScrollTo(targetY, duration = 700, easing = easeOutCubic) {
+  function smoothScrollTo(targetY, duration = 550, easing = easeOutCubic) {
     const startY = window.scrollY;
     const diff = targetY - startY;
     let start;
-
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      const t = Math.min((timestamp - start) / duration, 1); // 0..1
-      const eased = easing(t);
-      window.scrollTo(0, startY + diff * eased);
+    function step(ts) {
+      if (!start) start = ts;
+      const t = Math.min((ts - start) / duration, 1);
+      window.scrollTo(0, startY + diff * easing(t));
       if (t < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   }
 
+  function targetYFor(id) {
+    const section = document.querySelector(id);
+    if (!section) return window.scrollY;
+
+    // si hay h2 dentro, usamos ese como ancla visual
+    const anchor = section.querySelector('h2') || section;
+
+    const SAFE_OFFSET = 14; // respiración arriba
+    return anchor.getBoundingClientRect().top + window.scrollY - SAFE_OFFSET;
+  }
+
   menuLinks.forEach(a => {
-    a.addEventListener('click', (e) => {
+    a.addEventListener('click', e => {
       e.preventDefault();
+
+      // 1) cerrar menú si estaba abierto
+      const wasOpen = links.classList.contains('show');
+      if (wasOpen) links.classList.remove('show');
+
       const id = a.getAttribute('href');
-      const el = document.querySelector(id);
-      if (!el) return;
 
-      // Si algún día fijás un header/nav, restá su alto aquí:
-      const OFFSET = 12; // pequeño margen para que quede "respirando"
-      const targetY = el.getBoundingClientRect().top + window.scrollY - OFFSET;
-
-      smoothScrollTo(targetY, 750, easeOutCubic);
-
-      // Si el menú móvil está abierto, lo cerramos tras el click
-      links.classList.remove('show');
+      // 2) esperar a que el layout se actualice tras cerrar el menú
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {   // dos frames = layout estable
+          const y = targetYFor(id);
+          smoothScrollTo(y, 520, easeOutCubic);
+        });
+      });
     });
   });
-
 </script>
 
 

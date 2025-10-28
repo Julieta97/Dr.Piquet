@@ -1,3 +1,6 @@
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -429,6 +432,7 @@ section {
     gap: 18px; /* espacio entre cada campo */
     max-width: 600px;
     margin: 0 auto;
+    padding: 0 8px;
     text-align: left;
 }
 
@@ -486,8 +490,13 @@ section {
 
 /* Adaptable a pantallas pequeñas */
 @media (max-width: 600px) {
+    .contacto {
+      padding: 2rem 1rem;
+    }
+
     .contact-form {
     grid-template-columns: 1fr;
+    padding: 0 10px;
     }
 }
 
@@ -578,3 +587,4 @@ footer p {
     margin-bottom: 0.6rem;
   }
 }
+
