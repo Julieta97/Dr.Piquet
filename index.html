@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="Styles/styles.css">
   <title>Balón Intragástrico Endoscópico - Dr. Omar Esteban Piquet</title>
   
@@ -12,7 +13,7 @@
   <header>
   <div class="contenedor">
     <div class="doctor-section">
-      <img src="Images/doctor-4.jpg" alt="Dr. Piquet" class="doctor-img">
+      <img src="Images/imagen-piquet.jpeg" alt="Dr. Piquet" class="doctor-img">
       <div class="doctor-text">
         <p>Dr. Omar Esteban Piquet</p>
         <p>Sanatorio Belgrano, Mar del Plata</p>
@@ -183,7 +184,9 @@
 
 
   <!-- Botón flotante WhatsApp -->
-  <a class="whatsapp" href="https://wa.me/542235952646" target="_blank">💬</a>
+  <a class="whatsapp" href="https://wa.me/542235952646" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
   <!-- JavaScript -->
 <script>
@@ -193,6 +196,46 @@
   toggle.addEventListener('click', () => {
     links.classList.toggle('show');
   });
+
+   // ===== Scroll suave con "freno" al final (ease-out) =====
+  const menuLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+  // Easing easeOutCubic
+  const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+  function smoothScrollTo(targetY, duration = 700, easing = easeOutCubic) {
+    const startY = window.scrollY;
+    const diff = targetY - startY;
+    let start;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      const t = Math.min((timestamp - start) / duration, 1); // 0..1
+      const eased = easing(t);
+      window.scrollTo(0, startY + diff * eased);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  menuLinks.forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if (!el) return;
+
+      // Si algún día fijás un header/nav, restá su alto aquí:
+      const OFFSET = 12; // pequeño margen para que quede "respirando"
+      const targetY = el.getBoundingClientRect().top + window.scrollY - OFFSET;
+
+      smoothScrollTo(targetY, 750, easeOutCubic);
+
+      // Si el menú móvil está abierto, lo cerramos tras el click
+      links.classList.remove('show');
+    });
+  });
+
 </script>
 
 
